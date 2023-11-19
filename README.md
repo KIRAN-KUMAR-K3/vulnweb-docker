@@ -52,3 +52,39 @@ volumes:
 Defines a Docker volume named `mysql` that is used by the `database` service to persist MySQL data.
 
 In summary, this Docker Compose file sets up a WordPress application with a MySQL database. The two services (`database` and `wordpress`) run in separate containers, and Docker Compose manages their configuration and communication. The defined volumes ensure persistent data storage for the MySQL database. The entire setup is orchestrated using the specified version 3 of the Docker Compose file format.
+
+Working Principle:
+
+```markdown
+
+## Prerequisites
+
+Before you begin, ensure that you have Docker installed on your machine. If not, you can download and install Docker from the [official Docker website](https://www.docker.com/get-started).
+
+## Usage
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/KIRAN-KUMAR-K3/DOCKER.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd DOCKER
+   ```
+
+## Docker Compose
+
+If your project involves multiple services, consider including a section on Docker Compose:
+
+```bash
+docker-compose up -d
+```
+
+This will start the services defined in your `docker-compose.yml` file.
+
+
+
+
