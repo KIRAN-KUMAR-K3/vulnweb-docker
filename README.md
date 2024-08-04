@@ -1,90 +1,114 @@
-# doker
- small project code to host wordpress site on local machine
 
- This Docker Compose file defines a multi-container environment using Docker Compose, which is a tool for defining and running multi-container Docker applications. Let's break down the code:
 
-```yaml
-version: "3"
-```
+# Docker WordPress Setup
 
-This specifies the version of the Docker Compose file format being used.
+![Owner Avatar](https://avatars.githubusercontent.com/u/USER_ID)
 
-```yaml
-services:
-  database:
-    image: mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: wppassword
-      MYSQL_DATABASE: wpdb
-      MYSQL_USER: wpuser
-      MYSQL_PASSWORD: wppassword
-    volumes:
-      - mysql:/var/lib/mysql
-```
+Easily set up and host a WordPress site on your local machine using Docker Compose. This project provides a seamless configuration to get you started quickly.
 
-Defines a service named `database`. This service uses the official MySQL Docker image, sets environment variables for configuring the MySQL instance (root password, database name, user, and password), and creates a Docker volume named `mysql` to persistently store MySQL data.
+## Table of Contents
 
-```yaml
-  wordpress:
-    depends_on:
-      - database
-    image: wordpress:latest
-    restart: always
-    ports:
-      - "80:80"
-    environment:
-      WORDPRESS_DB_HOST: database:3306
-      WORDPRESS_DB_USER: wpuser
-      WORDPRESS_DB_PASSWORD: wppassword
-      WORDPRESS_DB_NAME: wpdb
-    volumes:
-      ["./:/var/www/html"]
-```
+- [Introduction](#introduction)
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Setup Instructions](#setup-instructions)
+  - [Clone the Repository](#clone-the-repository)
+  - [Navigate to Project Directory](#navigate-to-project-directory)
+  - [Start the Services](#start-the-services)
+- [Accessing WordPress](#accessing-wordpress)
+- [Managing the Services](#managing-the-services)
+  - [Stopping the Services](#stopping-the-services)
+  - [Viewing Logs](#viewing-logs)
+  - [Restarting the Services](#restarting-the-services)
+- [Conclusion](#conclusion)
 
-Defines a service named `wordpress`. This service depends on the `database` service. It uses the latest WordPress Docker image, restarts always, maps port 80 from the host to port 80 in the container, and sets environment variables for configuring the WordPress instance (database host, user, password, and name). It also mounts the current directory (`./`) onto the container's `/var/www/html` directory.
+## Introduction
 
-```yaml
-volumes:
-  mysql: {}
-```
+This project leverages Docker Compose to create a local WordPress development environment. It includes a MySQL database service and a WordPress service configured to work together seamlessly.
 
-Defines a Docker volume named `mysql` that is used by the `database` service to persist MySQL data.
+## Features
 
-In summary, this Docker Compose file sets up a WordPress application with a MySQL database. The two services (`database` and `wordpress`) run in separate containers, and Docker Compose manages their configuration and communication. The defined volumes ensure persistent data storage for the MySQL database. The entire setup is orchestrated using the specified version 3 of the Docker Compose file format.
-
-Working Principle:
-
-```markdown
+- **Quick Setup**: Get your WordPress site up and running in minutes.
+- **Persistent Data**: Data is stored persistently using Docker volumes.
+- **Easy Management**: Easily start, stop, and manage your WordPress and MySQL services.
 
 ## Prerequisites
 
-Before you begin, ensure that you have Docker installed on your machine. If not, you can download and install Docker from the [official Docker website](https://www.docker.com/get-started).
+Before you begin, ensure that you have Docker and Docker Compose installed on your machine. You can download and install them from the [official Docker website](https://www.docker.com/get-started).
 
-## Usage
+## Setup Instructions
 
-1. Clone this repository:
+### Clone the Repository
 
-   ```bash
-   git clone https://github.com/KIRAN-KUMAR-K3/DOCKER.git
-   ```
+First, clone this repository to your local machine:
 
-2. Navigate to the project directory:
+```bash
+git clone https://github.com/KIRAN-KUMAR-K3/vulnweb-docker.git
+```
 
-   ```bash
-   cd DOCKER
-   ```
+### Navigate to Project Directory
 
-## Docker Compose
+Navigate into the project directory:
 
-If your project involves multiple services, consider including a section on Docker Compose:
+```bash
+cd vulnweb-docker
+```
+
+### Start the Services
+
+Start the WordPress and MySQL services using Docker Compose:
 
 ```bash
 docker-compose up -d
 ```
 
-This will start the services defined in your `docker-compose.yml` file.
+The `-d` flag runs the containers in detached mode, allowing you to continue using your terminal.
 
+## Accessing WordPress
 
+Once the services are up and running, you can access your WordPress site by opening your web browser and navigating to:
 
+```
+http://localhost
+```
 
+## Managing the Services
+
+### Stopping the Services
+
+To stop and remove the services, use the following command:
+
+```bash
+docker-compose down
+```
+
+This command stops the containers and removes the associated networks but preserves the volumes for persistent data.
+
+### Viewing Logs
+
+If you need to view the logs for any of the services, use:
+
+```bash
+docker-compose logs
+```
+
+You can also view logs for a specific service by specifying the service name:
+
+```bash
+docker-compose logs wordpress
+```
+
+### Restarting the Services
+
+To restart the services, first stop them and then start them again:
+
+```bash
+docker-compose down
+docker-compose up -d
+```
+
+## Conclusion
+
+This Docker Compose setup provides an efficient way to run a WordPress site with a MySQL database locally. With Docker Compose, you can easily manage the services, ensuring a smooth and hassle-free development experience.
+
+For any further assistance or questions about the project, feel free to reach out. Happy coding!
