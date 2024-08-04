@@ -1,12 +1,13 @@
 
+# 🚀 Docker WordPress Setup
 
-# Docker WordPress Setup
-
-![Owner Avatar](https://avatars.githubusercontent.com/u/USER_ID)
+<p align="center">
+  <img src="https://unbiased-coder.com/wp-content/uploads/2022/08/Wordpress-Docker.png" alt="WordPress Docker" width="200"/>
+</p>
 
 Easily set up and host a WordPress site on your local machine using Docker Compose. This project provides a seamless configuration to get you started quickly.
 
-## Table of Contents
+## 📋 Table of Contents
 
 - [Introduction](#introduction)
 - [Features](#features)
@@ -20,25 +21,26 @@ Easily set up and host a WordPress site on your local machine using Docker Compo
   - [Stopping the Services](#stopping-the-services)
   - [Viewing Logs](#viewing-logs)
   - [Restarting the Services](#restarting-the-services)
+- [License](#license)
 - [Conclusion](#conclusion)
 
-## Introduction
+## 🌟 Introduction
 
 This project leverages Docker Compose to create a local WordPress development environment. It includes a MySQL database service and a WordPress service configured to work together seamlessly.
 
-## Features
+## ✨ Features
 
 - **Quick Setup**: Get your WordPress site up and running in minutes.
 - **Persistent Data**: Data is stored persistently using Docker volumes.
 - **Easy Management**: Easily start, stop, and manage your WordPress and MySQL services.
 
-## Prerequisites
+## 📌 Prerequisites
 
 Before you begin, ensure that you have Docker and Docker Compose installed on your machine. You can download and install them from the [official Docker website](https://www.docker.com/get-started).
 
-## Setup Instructions
+## 🛠️ Setup Instructions
 
-### Clone the Repository
+### 🌀 Clone the Repository
 
 First, clone this repository to your local machine:
 
@@ -46,7 +48,7 @@ First, clone this repository to your local machine:
 git clone https://github.com/KIRAN-KUMAR-K3/vulnweb-docker.git
 ```
 
-### Navigate to Project Directory
+### 📂 Navigate to Project Directory
 
 Navigate into the project directory:
 
@@ -54,7 +56,7 @@ Navigate into the project directory:
 cd vulnweb-docker
 ```
 
-### Start the Services
+### ▶️ Start the Services
 
 Start the WordPress and MySQL services using Docker Compose:
 
@@ -64,7 +66,7 @@ docker-compose up -d
 
 The `-d` flag runs the containers in detached mode, allowing you to continue using your terminal.
 
-## Accessing WordPress
+## 🌐 Accessing WordPress
 
 Once the services are up and running, you can access your WordPress site by opening your web browser and navigating to:
 
@@ -72,9 +74,9 @@ Once the services are up and running, you can access your WordPress site by open
 http://localhost
 ```
 
-## Managing the Services
+## 🔧 Managing the Services
 
-### Stopping the Services
+### ⏹️ Stopping the Services
 
 To stop and remove the services, use the following command:
 
@@ -84,7 +86,7 @@ docker-compose down
 
 This command stops the containers and removes the associated networks but preserves the volumes for persistent data.
 
-### Viewing Logs
+### 📜 Viewing Logs
 
 If you need to view the logs for any of the services, use:
 
@@ -98,7 +100,7 @@ You can also view logs for a specific service by specifying the service name:
 docker-compose logs wordpress
 ```
 
-### Restarting the Services
+### 🔄 Restarting the Services
 
 To restart the services, first stop them and then start them again:
 
@@ -107,8 +109,10 @@ docker-compose down
 docker-compose up -d
 ```
 
-## Conclusion
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📚 Conclusion
 
 This Docker Compose setup provides an efficient way to run a WordPress site with a MySQL database locally. With Docker Compose, you can easily manage the services, ensuring a smooth and hassle-free development experience.
-
-For any further assistance or questions about the project, feel free to reach out. Happy coding!
